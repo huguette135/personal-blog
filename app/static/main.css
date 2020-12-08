@@ -41,11 +41,11 @@ html, body {
     }
     
     .article-readmore {
-      color: #00C851;
+      color: rgb(3, 41, 167);
     }
   
     a.article-title:hover {
-      color: #007E33;
+      color: rgb(3, 41, 167);
       text-decoration: none;
     }
     
@@ -90,7 +90,7 @@ html, body {
   
     a {
       cursor: pointer;
-      color: rgb(3, 167, 68);
+      color: rgb(3, 41, 167);
   }
    p {
      font-size: 18px;
