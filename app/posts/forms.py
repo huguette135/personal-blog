@@ -11,7 +11,7 @@ class PostForm(FlaskForm):
     title = StringField('Title', validators=[DataRequired(), Length(min=10)])
     content = TextAreaField('Content', validators=[DataRequired()])
     image = FileField('Featured Image', validators=[FileAllowed(['jpg', 'png', 'jpeg'])])
-    category = StringField('Category', validators=[DataRequired()])
+    
     submit = SubmitField('Publish')
     
     

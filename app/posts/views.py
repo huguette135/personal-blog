@@ -43,7 +43,7 @@ def new_post():
             picture_file = save_picture(form.image.data)
             final_pic = picture_file
             pic= final_pic
-        post = Post(title=form.title.data, content=form.content.data, author=current_user, category=form.category.data, image=pic)
+        post = Post(title=form.title.data, content=form.content.data, author=current_user, image=pic)
         db.session.add(post)
         db.session.commit()
         flash('Your post has been published!', 'success')
@@ -76,7 +76,7 @@ def update_post(post_id):
              
         post.title = form.title.data
         post.content = form.content.data
-        post.category = form.category.data
+    
         post.image = final_pic
         db.session.commit()
         flash('Your post has been updated!', 'success')
@@ -84,7 +84,7 @@ def update_post(post_id):
     elif request.method == 'GET':
         form.title.data = post.title
         form.content.data = post.content
-        form.category.data = post.category
+        
     myposts = Post.query.order_by(Post.posted_date.desc())
     return render_template('new-post.html', title='Update Post', form=form, legend='Update Post', quotes=quotes, myposts=myposts)
 
@@ -99,14 +99,6 @@ def delete_post(post_id):
     db.session.commit()
     flash('Your post has been deleted!', 'success')
     return redirect(url_for('main.home'))
-
-
-@posts.route("/post/<string:category>")
-def category_post(category):
-    post = Post.query.filter_by(category=category).all()
-    print("..............", post)
-    myposts = Post.query.order_by(Post.posted_date.desc())
-    return render_template('category.html', post=post, category=category, myposts=myposts, quotes=quotes) 
 
 
 @posts.route("/post/<int:post_id>/comment", methods=['GET', 'POST'])
@@ -208,7 +200,7 @@ def new_post():
             picture_file = save_picture(form.image.data)
             final_pic = picture_file
             pic= final_pic
-        post = Post(title=form.title.data, content=form.content.data, author=current_user, category=form.category.data, image=pic)
+        post = Post(title=form.title.data, content=form.content.data, author=current_user, image=pic)
         db.session.add(post)
         db.session.commit()
         flash('Your post has been published!', 'success')

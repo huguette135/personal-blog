@@ -35,10 +35,6 @@
                     {% endif %}
                     
                 </div>
-                <div class="form-group">
-                        {{ form.category.label(class="form-control-label") }}
-                        {{ form.category(class="form-control form-control-lg") }}
-                </div>
 
                 <div class="form-group">
                     {{ form.image.label() }}
@@ -51,9 +47,8 @@
                 </div>
             </fieldset>
             <div class="form-group">
-                {{ form.submit(class="btn btn-outline-success") }}
+                {{ form.submit(class="btn btn-outline-primary") }}
             </div>
         </form>
     </div>
-    <!-- {{ simplemde.load_id("editor") }} -->
 {% endblock content %}
